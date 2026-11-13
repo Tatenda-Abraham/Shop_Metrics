@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1E3A8A">
+  <title>ShopMetrics — Retail performance</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="ShopMetrics home"><span class="brand-mark">S</span><span>ShopMetrics<small>RETAIL INTELLIGENCE</small></span></a>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview" aria-current="page"><span class="nav-icon">⌂</span><span>Overview</span><span class="nav-indicator"></span></a>
+        <a class="nav-link" href="#charts"><span class="nav-icon">▥</span><span>Sales analytics</span></a>
+        <a class="nav-link" href="#inventory"><span class="nav-icon">▤</span><span>Inventory</span></a>
+        <a class="nav-link" href="#insights-panel"><span class="nav-icon">✳</span><span>Insights</span></a>
+        <a class="nav-link" href="#sales-entry"><span class="nav-icon">＋</span><span>Log a sale</span></a>
+      </nav>
+      <div class="sidebar-bottom"><span class="store-avatar">M</span><span class="store-copy"><strong>Maple & Main</strong><small>Demo workspace</small></span><span class="store-menu">···</span></div>
+    </aside>
+    <div class="dashboard">
+      <header class="topbar">
+        <a class="brand mobile-brand" href="#overview" aria-label="ShopMetrics home"><span class="brand-mark">S</span><span>ShopMetrics<small>RETAIL INTELLIGENCE</small></span></a>
+        <div class="topbar-context"><span class="breadcrumb">Workspace <b>/</b> <strong>Overview</strong></span><span class="topbar-caption">Your store, at a glance</span></div>
+        <div class="topbar-actions"><span class="today-chip"><span>◷</span> Today</span><span class="live-pill"><i></i> Live</span><button class="button button-quiet" id="reset-data" type="button"><span class="reset-icon">↻</span><span>Reset demo</span></button></div>
+      </header>
+      <main class="page">
+    <section class="page-heading" id="overview"><div><p class="eyebrow">STORE OVERVIEW</p><h1>Know what moves.</h1><p class="muted">Sales and inventory performance at a glance.</p></div></section>
+    <section class="kpi-grid" id="kpi-cards" aria-label="Key performance indicators"></section>
+    <section class="chart-grid" id="charts" aria-label="Performance charts"><article class="card chart-card"><div class="section-heading"><div><p class="eyebrow">SALES PERFORMANCE</p><h2>Best sellers</h2></div><span class="chart-note">Units sold</span></div><canvas id="sales-chart" aria-label="Bar chart showing best-selling products"></canvas></article><article class="card chart-card"><div class="section-heading"><div><p class="eyebrow">INVENTORY EXPOSURE</p><h2>Stock value</h2></div><span class="chart-note">At cost</span></div><canvas id="stock-chart" aria-label="Bar chart showing inventory value by product"></canvas></article></section>
+    <section class="leader-grid" id="leaderboards" aria-label="Product rankings"></section>
+    <section class="card insights-card" id="insights-panel"><div class="section-heading"><div><p class="eyebrow">SMART RECOMMENDATIONS</p><h2>Insights for your store</h2></div><span class="insight-count" id="insight-count"></span></div><div class="insight-list" id="insights"></div></section>
+    <section class="bottom-grid"><article class="card sale-card" id="sales-entry"><div class="section-heading"><div><p class="eyebrow">QUICK ENTRY</p><h2>Log a sale</h2></div><span class="sale-icon">＋</span></div><p class="muted">Record a transaction and refresh your metrics instantly.</p><form id="sale-form"><label>Product<select id="sale-product" name="product" required></select></label><div class="form-row"><label>Quantity<input name="quantity" type="number" min="1" step="1" value="1" required></label><label>Discount %<input name="discount" type="number" min="0" max="80" step="1" value="0"></label></div><p class="form-message" id="sale-message" role="status"></p><button class="button button-primary" type="submit">Record sale <span>→</span></button></form></article><article class="card inventory-card" id="inventory"><div class="section-heading"><div><p class="eyebrow">ON-HAND INVENTORY</p><h2>Product stock</h2></div><span class="chart-note">Units remaining</span></div><div class="table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Stock</th><th>Status</th></tr></thead><tbody id="inventory-rows"></tbody></table></div></article></section>
+    <footer>ShopMetrics <span>·</span> Demo data is saved in this browser.</footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
